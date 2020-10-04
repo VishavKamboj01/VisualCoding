@@ -38,7 +38,7 @@
         android:id="@+id/code_pipeline_r_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:background="@android:color/holo_blue_dark"
         android:layout_below="@id/coding_buttons"/>
 

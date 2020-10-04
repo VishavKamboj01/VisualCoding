@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.visualcoding.game_objects.Condition;
+import com.example.visualcoding.game_objects.ConditionOperationType;
+import com.example.visualcoding.game_objects.IntParam;
+import com.example.visualcoding.game_objects.WhileLoop;
+
 public class GameActivity extends AppCompatActivity {
     private RecyclerView codePipelineRView;
     private CodingPipelineRViewAdapter pipelineAdapter;
@@ -19,16 +24,24 @@ public class GameActivity extends AppCompatActivity {
         codePipelineRView = findViewById(R.id.code_pipeline_r_view);
         pipelineAdapter = new CodingPipelineRViewAdapter(GameActivity.this);
         codePipelineRView.setAdapter(pipelineAdapter);
-        codePipelineRView.setLayoutManager(new LinearLayoutManager(GameActivity.this, RecyclerView.HORIZONTAL, false));
+        codePipelineRView.setLayoutManager(new LinearLayoutManager(GameActivity.this, RecyclerView.VERTICAL, false));
 
-        Button whileLoop = findViewById(R.id.while_loop);
+        final Button whileLoop = findViewById(R.id.while_loop);
         Button forLoop = findViewById(R.id.for_loop);
         Button ifStatement = findViewById(R.id.if_statement);
-       View.OnClickListener listener =  new View.OnClickListener() {
+        View.OnClickListener listener =  new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tview = (TextView)view;
-                pipelineAdapter.addItem(tview.getText().toString());
+                Button button = (Button) view;
+
+                WhileLoop whileLoop1 = new WhileLoop("WHILE1");
+                whileLoop1.setLoopCondition(new Condition(new IntParam(2),
+                                            ConditionOperationType.GREATER_THAN,
+                                            new IntParam(5)));
+
+                System.out.println("WHILE EVAL: "+ whileLoop1.evaluate());
+
+                pipelineAdapter.addItem(whileLoop1);
                 pipelineAdapter.notifyDataSetChanged();
             }
         };

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/pipeline_recycler_view_item_linear_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/pipeline_indent_left_statement"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:text="L" />
+
+    <Button
+        android:id="@+id/pipeline_indent_right_statement"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
+        android:paddingRight="20dp"
+        android:text="R" />
+
+    <TextView
+        android:id="@+id/pipeline_recycler_view_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/pipeline_condition_lhs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/pipeline_condition_operation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/pipeline_condition_rhs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="10dp"/>
+
+    <TextView
+        android:id="@+id/pipeline_condition_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=":"/>
+
+</LinearLayout>
