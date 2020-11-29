@@ -5,14 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.visualcoding.R;
-
 import java.util.ArrayList;
-
 import com.example.visualcoding.modal.CodeObject;
 
 public class CodingPipelineRViewAdapter extends RecyclerView.Adapter<ListLineHolder> {
