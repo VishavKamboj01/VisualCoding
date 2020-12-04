@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.visualcoding.R;
 import java.util.ArrayList;
-import com.example.visualcoding.modal.CodeObject;
+import com.example.visualcoding.objects.CodeObject;
 
 public class CodingPipelineRViewAdapter extends RecyclerView.Adapter<ListLineHolder> {
     private Context context;

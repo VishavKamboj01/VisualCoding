@@ -1,4 +1,4 @@
-package com.example.visualcoding;
+package com.example.visualcoding.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.visualcoding.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button start;
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,GameActivity.class));
+                startActivity(new Intent(MainActivity.this, GameActivity.class));
             }
         });
 

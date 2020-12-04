@@ -1,4 +1,4 @@
-package com.example.visualcoding;
+package com.example.visualcoding.ui.helpers;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -7,13 +7,13 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 
-public class MyDragShadowBuilder extends View.DragShadowBuilder {
+public class DragShadowBuilder extends View.DragShadowBuilder {
 
     // The drag shadow image, defined as a drawable thing
     private static Drawable shadow;
 
     // Defines the constructor for myDragShadowBuilder
-    public MyDragShadowBuilder(View v) {
+    public DragShadowBuilder(View v) {
 
         // Stores the View parameter passed to myDragShadowBuilder.
         super(v);

@@ -1,4 +1,4 @@
-package com.example.visualcoding.modal;
+package com.example.visualcoding.objects;
 
 public class CodeObject {
     private String code;
