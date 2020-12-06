@@ -1,4 +1,4 @@
-package com.example.visualcoding.objects;
+package com.example.visualcoding.objects.drawables;
 
 import android.graphics.Paint;
 import java.util.HashMap;

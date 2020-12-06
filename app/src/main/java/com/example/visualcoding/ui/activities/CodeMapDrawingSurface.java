@@ -1,6 +1,7 @@
 package com.example.visualcoding.ui.activities;
 
 import android.content.Context;
+import android.graphics.Camera;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -13,12 +14,12 @@ import android.view.SurfaceView;
 import android.view.View;
 
 import com.example.visualcoding.ui.helpers.FrameController;
-import com.example.visualcoding.objects.Material;
-import com.example.visualcoding.objects.Rectangle;
+import com.example.visualcoding.objects.drawables.Material;
+import com.example.visualcoding.objects.drawables.Rectangle;
 
 public class CodeMapDrawingSurface extends SurfaceView implements Runnable, View.OnTouchListener {
     private SurfaceHolder surfaceHolder;
-    private Matrix cameraMatrix;
+    private Camera camera;
     private boolean canDraw;
     private Thread thread;
     private Context context;
@@ -36,13 +37,13 @@ public class CodeMapDrawingSurface extends SurfaceView implements Runnable, View
 
     private void init(Context context) {
         this.context = context;
+        this.camera = new Camera();
         surfaceHolder = getHolder();
         canDraw = false;
 
         setOnTouchListener(this);
 
         frameController = new FrameController(60);
-        cameraMatrix = new Matrix();
 
         Paint redFill = new Paint();
         redFill.setColor(Color.RED);
@@ -69,7 +70,7 @@ public class CodeMapDrawingSurface extends SurfaceView implements Runnable, View
             try {
                 // draw here
                 //cameraMatrix.postRotate(1);
-                canvas.setMatrix(cameraMatrix);
+                camera.applyToCanvas(canvas);
                 rectangle.draw(canvas);
 
             } finally {
@@ -122,7 +123,12 @@ public class CodeMapDrawingSurface extends SurfaceView implements Runnable, View
                 return true;
             case MotionEvent.ACTION_MOVE:
                 System.out.println("Action Move: "+ (int)motionEvent.getX() +", "+ (int)motionEvent.getY());
-                rectangle.getRectangle().offsetTo((int)motionEvent.getX(), (int)motionEvent.getY());
+                //rectangle.getRectangle().offsetTo((int)motionEvent.getX(), (int)motionEvent.getY());
+                int historySize = motionEvent.getHistorySize();
+                if(historySize > 0) {
+                    float xDiff = motionEvent.getHistoricalX(historySize -1) - motionEvent.getX();
+                    camera.translate(xDiff, 0, 0f);
+                }
                 return true;
             case MotionEvent.ACTION_UP:
                 System.out.println("Action Up: "+ (int)motionEvent.getX() +", "+ (int)motionEvent.getY());

@@ -1,7 +1,9 @@
-package com.example.visualcoding.objects;
+package com.example.visualcoding.objects.drawables;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+
+import com.example.visualcoding.objects.drawables.Drawable;
 
 public class Rectangle extends Drawable {
     private Rect rectangle;
